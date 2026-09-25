@@ -2,7 +2,7 @@
 
 > Bu dosya, sohbet/hesap değişse bile işin kopmaması için tutulan **tek kaynak** defterdir.
 > Yeni bir yapay zekâ ajanıysan: **önce bu dosyanın tamamını oku, kendi hafızan gibi kullan.**
-> Son güncelleme: 26 Eylül 2026, ~00:40 (TR)
+> Son güncelleme: 26 Eylül 2026, ~01:00 (TR)
 
 ---
 
@@ -12,8 +12,9 @@
 2. **Güncelle:** Her önemli gelişmede (yeni iş, teslim, revize, müşteri mesajı, fiyat/anlaşma değişikliği) bu dosyayı güncelle ve GitHub'a **push et**. Uzun işlerde en az her teslimden sonra.
    - İlgili iş bölümünü güncelle (§6) ve en alttaki **Günlük**'e (§9) tarihli bir satır ekle.
 3. **Kopyala ve sürdür:** O an çalıştığın sohbetin açık GitHub reposu farklıysa, bu dosyayı (ve `AGENTS.md`'yi) oraya da kopyala, orada güncellemeye devam et ve aşağıdaki "Defter adresleri" listesine yeni adresi ekle. Böylece zincir sonsuza kadar devam eder.
-4. **Devir notu:** Kullanıcının kredisi/bağlamı bitince ona yalnızca şu kısa notu ver:
-   > "Bu sohbetin bağlamı doldu. Önceki konuşma burada bitti, yeni sohbete geçmek zorundasın. Yeni ajana şunu yapıştır: **Önce şu defteri baştan sona oku ve oradan devam et: <defter linki>**"
+4. **Devir notu:** Kullanıcının kredisi/bağlamı bitmek üzereyken, işe devam etmeden **önce** ona yeni ajana yapıştıracağı şu prompt'u ver (linkler = en güncel defter adresi):
+   > Bu işe önceki bir sohbette başlandı. O sohbetin kredisi/bağlamı bitti, mecburen buraya geçtim. Önceki ajan her şeyi şu GitHub defterine yazdı: <defter linki> (ham hali: <raw linki>). Önce bu defteri baştan sona oku ve kendi hafızan gibi kullan. Defterin başındaki "Ajan protokolü"ne aynen uy: her gelişmeden sonra defteri güncelle ve push et. Bu sohbetin açık reposu farklıysa defteri ve AGENTS.md'yi oraya kopyala, orada sürdür, yeni adresi defterdeki listeye ekle. Kodlar aynı reponun kod/ klasöründe, kaynak videolar defterdeki Drive linklerinde; önceki sandbox'taki dosyalar sende yok, gerekenleri yeniden indir. Sonra defterdeki "Açık işler" listesinden devam et. Benimle Türkçe, kısa ve net konuş.
+   - Yeni sohbete geçerken **ekler (ekran görüntüleri, videolar) aktarılmaz**, sadece yazılı kayıt gider. Ekran görüntülerindeki her önemli bilgiyi bu deftere yazıya dök.
 5. **Gizlilik:** Repo herkese açık. Buraya müşteri **videolarını/ham görüntülerini, telefon numaralarını, şifre/token** koyma. İş bilgisi, kararlar, fiyatlar ve kod yazılabilir (kullanıcının açık isteği).
 6. Kullanıcıyla **Türkçe, kısa ve net** konuş.
 
@@ -29,6 +30,7 @@
 - Mesajları kullanıcı kendisi gönderir, videoyu kendisi atar. Geri kalan her yük ajandadır ("senin üzerimdeki bütün yükü alman lazım").
 - Kalite beklentisi: referanslardan iyi, her detayı düşünülmüş, emek verildiği belli işler. Kötü kaynakları (gürültülü ses, soluk/patlamış görüntü) ajan düzeltir.
 - Kullanıcı "sadece soruma cevap ver, bir şey yapma" derse iş yapma, sadece açıkla.
+- Tek mesajda en fazla 10 ek atabiliyor; fazlasını zip ile atar (zip'i aç, sırasıyla oku).
 - **Teslim:** Videoyu sohbete **ek (attachment)** olarak koy, kullanıcı indirip izler (tercihi bu). Alternatif: platform paylaşım linki (display_multimedia, public, 7 gün). Müşteri görüntülerini harici dosya paylaşım sitelerine yükleme.
 - Müşteriye WhatsApp'ta **Belge** olarak göndermesini öner (sıkıştırılmasın).
 
@@ -106,6 +108,7 @@
   3. **En sona "Şule'yi çektiğimiz video" eklenecek**: WeTransfer `DJI_20260920183210_0083_D.MP4` (Pocket, 9,7 sn, sesli). Şule (gözlüklü, gri ceketli kadın, İnci brandası önünde) diyor ki: "İşinizi böyle bir yere taşımak istiyorsanız ya da yüksek kira getirisi elde etmek istiyorsanız ön satış fırsatları Gönen Serhat İnşaat'ta."
   4. "ÇARŞININ TAM MERKEZİNDE" anında, drone binadan **uzaklaşırken binanın tamamlanma animasyonu** (inşaat → bitmiş bina). Render'lar Drive "Renderlar" klasöründe: https://drive.google.com/drive/u/0/folders/1K6qyf3VcfuPMm7XPTReNsp-WYz9AoJNo (10 dosya, `1657 (1..9).jpg` + `1657 (1).png`, 7996×6000; PNG'nin arka planı şeffaf). Render'larda bina: "GÖNEN SERHAT İNŞAAT – İNCİ", tuğla + gri + beyaz balkonlar, köşe bina.
   - Teknik not: İnci binası otopark karesinde (src 58.934) caddenin karşısında, YGS TOHUM'un solunda (1296×2304 ara dosyada çatı ≈ (652,1040)). Takip: `kod/serhat/track_bld.py`.
+  - v4 ilerleme (26 Eyl 01:00): bina takibi yapıldı → `kod/serhat/data/v4/` (bld_*/b2_*.json, `track_bld2.py`). v3 takip verileri `kod/serhat/data/v3`, `data/track`. Sıradaki adım: otopark sahnesine bina etiketi + süre uzatma, şehir çekimlerine konum pini, tamamlanma animasyonu, sona Şule klibi, render.
 
 ### 6.4 Er İnşaat – eski videocunun videosunun yeniden kurgusu — 🆕 YENİ İŞ (analiz aşaması)
 - 25 Eyl 22:49: Son müşteri (Er İnşaat) eski videocunun yaptığı `Comp 1_1.mp4`'ü beğenmedi: "Hiç güzel olmamış çok basit". Hiçyılmaz: "Sen farklı yaparsın", "bina içinden geçişler falan", "burada detayları var zaten, bina içinden geçme falan filan ne varsa yapalım". Bizim işlerimiz beğenildi ("Hayır hayır beğenildi sorun yok").
@@ -146,3 +149,4 @@
 - 25 Eyl: Müşteri işaretlemeleri gönderdi → Serhat v3 (3 takipli işaret, Pocket çıkarıldı).
 - 25 Eyl ~23:30: Kullanıcının isteğiyle bu herkese açık istihbarat defteri oluşturuldu. Yeni sohbete geçildi; 8 yeni ekran görüntüsü ajana ulaşmadı, tekrar istendi.
 - 26 Eyl ~00:40: Ekran görüntüleri (zip) geldi. Serhat v4 için 4 revize isteği, render'lar ve Şule videosu indirildi. Yeni iş: Er İnşaat (ham dosyalar indirildi, 5,5 GB). Serhat v4 çalışması başladı.
+- 26 Eyl ~01:00: Kullanıcının kredisi azaldı (~14 $) → devir prompt'u verildi (§0.4), defter ve takip verileri push edildi.
