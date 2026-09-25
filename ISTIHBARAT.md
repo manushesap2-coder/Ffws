@@ -2,7 +2,7 @@
 
 > Bu dosya, sohbet/hesap değişse bile işin kopmaması için tutulan **tek kaynak** defterdir.
 > Yeni bir yapay zekâ ajanıysan: **önce bu dosyanın tamamını oku, kendi hafızan gibi kullan.**
-> Son güncelleme: 25 Eylül 2026, ~23:30 (TR)
+> Son güncelleme: 26 Eylül 2026, ~00:40 (TR)
 
 ---
 
@@ -99,11 +99,39 @@
   - "sosyal alanlara ve resmi kurumlara" → Cumhuriyet Meydanı + Belediye Binası (src 136.931)
   - Pocket sahneleri tamamen çıkarıldı; yerine drone'un binaya girdiği iç mekân (çıkış çekiminin tersi).
   - Kod: `kod/serhat/tl_s3.py`, `comp_s3.py`, `callouts.py`, `audio_s3.py`, `cam2.py`, `sgrade2.py`.
-- **Sonra:** Müşteriden yeni revize/istekler geldi (25 Eyl akşamı, 8 ekran görüntüsü). İçerik bu defter yazılırken ajana ulaşmadı → kullanıcıdan tekrar iste ve buraya işle.
+- 25 Eyl 23:30: v3 müşteriye gitti. Hiçyılmaz: "Bu güzel sıkıntı yok", "Ben beğendim", son müşteriye iletti.
+- **v4 revize istekleri (son müşteriden, 25 Eyl 23:39 – 26 Eyl 00:09):**
+  1. Otopark sahnesi: otopark işaretliyken **inşaatı da (İnci binası) işaretle**; otopark alanına **daha fazla süre** ver, daha çok vurgula.
+  2. Drone şehir çekimlerinde ("GÜÇLÜ KONUM" ve "CUMHURİYET MEYDANI" kareleri) **projenin yerini de işaretle**.
+  3. **En sona "Şule'yi çektiğimiz video" eklenecek**: WeTransfer `DJI_20260920183210_0083_D.MP4` (Pocket, 9,7 sn, sesli). Şule (gözlüklü, gri ceketli kadın, İnci brandası önünde) diyor ki: "İşinizi böyle bir yere taşımak istiyorsanız ya da yüksek kira getirisi elde etmek istiyorsanız ön satış fırsatları Gönen Serhat İnşaat'ta."
+  4. "ÇARŞININ TAM MERKEZİNDE" anında, drone binadan **uzaklaşırken binanın tamamlanma animasyonu** (inşaat → bitmiş bina). Render'lar Drive "Renderlar" klasöründe: https://drive.google.com/drive/u/0/folders/1K6qyf3VcfuPMm7XPTReNsp-WYz9AoJNo (10 dosya, `1657 (1..9).jpg` + `1657 (1).png`, 7996×6000; PNG'nin arka planı şeffaf). Render'larda bina: "GÖNEN SERHAT İNŞAAT – İNCİ", tuğla + gri + beyaz balkonlar, köşe bina.
+  - Teknik not: İnci binası otopark karesinde (src 58.934) caddenin karşısında, YGS TOHUM'un solunda (1296×2304 ara dosyada çatı ≈ (652,1040)). Takip: `kod/serhat/track_bld.py`.
+
+### 6.4 Er İnşaat – eski videocunun videosunun yeniden kurgusu — 🆕 YENİ İŞ (analiz aşaması)
+- 25 Eyl 22:49: Son müşteri (Er İnşaat) eski videocunun yaptığı `Comp 1_1.mp4`'ü beğenmedi: "Hiç güzel olmamış çok basit". Hiçyılmaz: "Sen farklı yaparsın", "bina içinden geçişler falan", "burada detayları var zaten, bina içinden geçme falan filan ne varsa yapalım". Bizim işlerimiz beğenildi ("Hayır hayır beğenildi sorun yok").
+- "3 ayrı proje var bir de ofis konum videosu." → **Tek video mu, 4 ayrı video mu netleşmedi; kullanıcıya sor** (fiyat: video başı 1.750 TL).
+- Ham dosyalar (Drive "Er İnşaat 03 Ağustos"): https://drive.google.com/drive/folders/1dBwX-iCtBANwcWw7QnSI1PNDLVU1W1ul
+  - Drone: 29 klip `DJI_20260803..._0037_D` – `_0065_D`, **1920×1080 yatay**, 8-bit, 59.94 fps (dikey Reels için kırpma + iyi büyütme gerekir).
+  - Pocket: `0224`–`0226` (1728×3072 dikey, 10-bit).
+  - Görseller: `Gündoğdu Proje/` (2), `Tırnova Proje/` (1), `Zade İnşaat - 5 Daire/` (1); `DJI_..._0064_D/1-4.jpg` = ofis konum işaretlemeleri.
+  - `Açıklamalar.txt` özeti:
+    - 0037–0047 arası proje detayları: IG https://www.instagram.com/p/DTcxGbpjVEs/ ve https://www.instagram.com/p/DMnip2sNBhf/
+    - 0055–0063 arası proje detayları: IG https://www.instagram.com/p/DTcxOXJDXDq/ ve https://www.instagram.com/p/DMnieZBN590/
+    - 0048–0053 arası proje detayları "sabah gelecek".
+    - Pocket 0226'daki **tabelanın gece hali** (ışıklı) yapılacak.
+    - **Speed ramp tarzı**, efektli, geçişli, yazılı ("cart curt").
+    - **Ofis konum işaretlemesi** 0064'te; işaretlemeler o klasörde.
+    - Projeler için eski IG videolarından konum işaretlemesi yapılabilir.
+- Eksik: `Comp 1_1.mp4` (eski video, referans) bizde yok → kullanıcıdan iste. 0048–0053 detayları bekleniyor.
+
+### 6.5 "Oynayan dayı" (akım videosu) — ❓
+- Hiçyılmaz 22:41 "Bu gelir mi", 23:34 "Oynayan dayı işine bakabildin mi" diye sordu; kullanıcı "o hazır yolluyorum şimdi" dedi. Bu iş bizim sohbetlerimizde yapılmadı; durumu kullanıcıya sor.
 
 ## 7. Açık işler / Yapılacaklar
-- [ ] Kullanıcının 25 Eyl akşamı attığı 8 yeni yazışma ekran görüntüsünü al, istenen revizeleri yap.
-- [ ] Kuzey: yeni istek + "Resul abi gelmeden" altyazısı; son gönderilen Kuzey videosunu kullanıcıdan al.
+- [ ] **Serhat v4**: 4 revize (§6.3) → teslim.
+- [ ] **Er İnşaat**: kapsamı netleştir (1 mi 4 mü), `Comp 1_1.mp4`'ü al, sabah gelecek detayları bekle; kurguya başla.
+- [ ] Kuzey: 25 Eyl 17:46 Hiçyılmaz "Kuzeyi bi bekletir misin, bi şey daha diyolar sanırım" dedi → yeni istek bekleniyor. Yapılacak: "Resul abi gelmeden" altyazısı + yeni istek; son gönderilen Kuzey videosunu kullanıcıdan al.
+- [ ] Çil v2'nin müşteriye gönderilip gönderilmediğini teyit et.
 - [ ] Ödeme/fatura/revize hakkı mesajını onaylardan sonra gönderdir.
 - [ ] ~24 Ekim 2026: 2.000 TL/video'yu hatırlat.
 
@@ -117,3 +145,4 @@
 - 25 Eyl: Serhat v2 (kadın yakın/net, tozluluk giderildi).
 - 25 Eyl: Müşteri işaretlemeleri gönderdi → Serhat v3 (3 takipli işaret, Pocket çıkarıldı).
 - 25 Eyl ~23:30: Kullanıcının isteğiyle bu herkese açık istihbarat defteri oluşturuldu. Yeni sohbete geçildi; 8 yeni ekran görüntüsü ajana ulaşmadı, tekrar istendi.
+- 26 Eyl ~00:40: Ekran görüntüleri (zip) geldi. Serhat v4 için 4 revize isteği, render'lar ve Şule videosu indirildi. Yeni iş: Er İnşaat (ham dosyalar indirildi, 5,5 GB). Serhat v4 çalışması başladı.
