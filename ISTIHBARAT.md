@@ -108,7 +108,15 @@
   3. **En sona "Şule'yi çektiğimiz video" eklenecek**: WeTransfer `DJI_20260920183210_0083_D.MP4` (Pocket, 9,7 sn, sesli). Şule (gözlüklü, gri ceketli kadın, İnci brandası önünde) diyor ki: "İşinizi böyle bir yere taşımak istiyorsanız ya da yüksek kira getirisi elde etmek istiyorsanız ön satış fırsatları Gönen Serhat İnşaat'ta."
   4. "ÇARŞININ TAM MERKEZİNDE" anında, drone binadan **uzaklaşırken binanın tamamlanma animasyonu** (inşaat → bitmiş bina). Render'lar Drive "Renderlar" klasöründe: https://drive.google.com/drive/u/0/folders/1K6qyf3VcfuPMm7XPTReNsp-WYz9AoJNo (10 dosya, `1657 (1..9).jpg` + `1657 (1).png`, 7996×6000; PNG'nin arka planı şeffaf). Render'larda bina: "GÖNEN SERHAT İNŞAAT – İNCİ", tuğla + gri + beyaz balkonlar, köşe bina.
   - Teknik not: İnci binası otopark karesinde (src 58.934) caddenin karşısında, YGS TOHUM'un solunda (1296×2304 ara dosyada çatı ≈ (652,1040)). Takip: `kod/serhat/track_bld.py`.
-  - v4 ilerleme (26 Eyl 01:00): bina takibi yapıldı → `kod/serhat/data/v4/` (bld_*/b2_*.json, `track_bld2.py`). v3 takip verileri `kod/serhat/data/v3`, `data/track`. Sıradaki adım: otopark sahnesine bina etiketi + süre uzatma, şehir çekimlerine konum pini, tamamlanma animasyonu, sona Şule klibi, render.
+  - **v4 teslim edildi (26 Eyl ~02:00, 70 sn, −14,6 LUFS):** madde 1, 2 ve 3 yapıldı. Tamamlanma animasyonu (madde 4) **henüz yok**.
+    - Otopark sahnesi 3 vuruş (1,46 sn) uzadı. Seslendirmede "Otopark avantajı"ndan sonraki es 0,40 → 1,86 sn oldu. İnci binasına turuncu pin + "İNCİ PROJESİ" etiketi eklendi.
+    - MEY (Cumhuriyet Meydanı) ve WIDE (Güçlü Konum) çekimlerinde de aynı pin var. LK takibi src ~75'ten sonra kayıyordu; elle ölçülen düzeltme tablosu `CORR_*` (comp_s4.py) ile pin beton iskelete oturtuldu, kareler tek tek kontrol edildi.
+    - Sona Şule klibi eklendi (0,4 sn çapraz geçiş). Sıcak renk, kelime kelime altyazı, sonda logo + "İNCİ PROJESİ" var. Ses DeepFilterNet ile temizlendi.
+    - Kod: `kod/serhat/tl_s4.py`, `comp_s4.py`, `sule_s4.py`, `audio_s4.py`. Render: 0–26,4 sn v3 kareleri (aynı), gerisi `comp_s4.py --start/--end` parçaları → concat → xfade (fade) + mix4_final.wav.
+  - **Madde 4 planı (sıradaki ajan için):** Pencere T 26,59–30,05 sn (`draw_pin`, kaynak D_B lt 1,2–6,6). Drone binanın önünden geri çekiliyor; bina köşeden (ön cephe + sol yan) görünüyor.
+    - Render `1657 (8).jpg` ön cepheyi tam karşıdan gösteriyor (zemin dükkân + 3 kat + tepede "GÖNEN SERHAT İNŞAAT İNCİ" tabelası). Cephe için en uygun doku bu.
+    - Yöntem: referans karede cephe köşelerini işaretle, cepheyi homografi ile takip et (LK + RANSAC). Render cephesini oturt ve aşağıdan yukarı parlayan tarama çizgisiyle "inşa" et. Renk ve netliği drone görüntüsüne eşle.
+    - Sadece T 26,4–30,07 parçasını (`p_c`) yeniden render et ve v4 parçalarıyla birleştir.
 
 ### 6.4 Er İnşaat – eski videocunun videosunun yeniden kurgusu — 🆕 YENİ İŞ (analiz aşaması)
 - 25 Eyl 22:49: Son müşteri (Er İnşaat) eski videocunun yaptığı `Comp 1_1.mp4`'ü beğenmedi: "Hiç güzel olmamış çok basit". Hiçyılmaz: "Sen farklı yaparsın", "bina içinden geçişler falan", "burada detayları var zaten, bina içinden geçme falan filan ne varsa yapalım". Bizim işlerimiz beğenildi ("Hayır hayır beğenildi sorun yok").
@@ -131,7 +139,7 @@
 - Hiçyılmaz 22:41 "Bu gelir mi", 23:34 "Oynayan dayı işine bakabildin mi" diye sordu; kullanıcı "o hazır yolluyorum şimdi" dedi. Bu iş bizim sohbetlerimizde yapılmadı; durumu kullanıcıya sor.
 
 ## 7. Açık işler / Yapılacaklar
-- [ ] **Serhat v4**: 4 revize (§6.3) → teslim.
+- [ ] **Serhat**: v4 kullanıcıya teslim edildi (madde 1–3). Kalan: **binanın tamamlanma animasyonu** (madde 4, plan §6.3). Müşteri v4'e ne dedi, sor.
 - [ ] **Er İnşaat**: kapsamı netleştir (1 mi 4 mü), `Comp 1_1.mp4`'ü al, sabah gelecek detayları bekle; kurguya başla.
 - [ ] Kuzey: 25 Eyl 17:46 Hiçyılmaz "Kuzeyi bi bekletir misin, bi şey daha diyolar sanırım" dedi → yeni istek bekleniyor. Yapılacak: "Resul abi gelmeden" altyazısı + yeni istek; son gönderilen Kuzey videosunu kullanıcıdan al.
 - [ ] Çil v2'nin müşteriye gönderilip gönderilmediğini teyit et.
@@ -150,3 +158,4 @@
 - 25 Eyl ~23:30: Kullanıcının isteğiyle bu herkese açık istihbarat defteri oluşturuldu. Yeni sohbete geçildi; 8 yeni ekran görüntüsü ajana ulaşmadı, tekrar istendi.
 - 26 Eyl ~00:40: Ekran görüntüleri (zip) geldi. Serhat v4 için 4 revize isteği, render'lar ve Şule videosu indirildi. Yeni iş: Er İnşaat (ham dosyalar indirildi, 5,5 GB). Serhat v4 çalışması başladı.
 - 26 Eyl ~01:00: Kullanıcının kredisi azaldı (~14 $) → devir prompt'u verildi (§0.4), defter ve takip verileri push edildi.
+- 26 Eyl ~02:00: Serhat v4 teslim (uzun otopark + İnci pinleri + Şule kapanışı). Tamamlanma animasyonu sıradaki iş.

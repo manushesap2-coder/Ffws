@@ -12,6 +12,13 @@ EXT = 3 * BEAT                               # v4: parking shot held 3 beats lon
 VO_PAUSE = 0.40 + EXT                        # breath after 'Otopark avantajı,' grows with it
 T_FIN = T_VO + 34.35 + VO_PAUSE + 2.45       # end of the drone/logo finale; the Şule clip is appended after it (sule_s4.py)
 T_END = T_FIN
+# ---- v4 ending: Şule's CTA (Pocket 0083) cross-dissolved in after the finale
+XF = 0.40                                    # xfade length main -> Şule
+SULE_S0, SULE_S1, SULE_HOLD = 0.45, 9.62, 1.0  # clip in/out (speech 0.84-8.63) + freeze-frame hold for the end card
+D_SULE = SULE_S1 - SULE_S0 + SULE_HOLD
+L_MAIN = round(T_FIN * FPS) / FPS
+T_SULE = L_MAIN - XF                         # Şule segment start on the final timeline
+T_TOT = T_SULE + D_SULE
 
 # ---- girl speech (MMS alignment on the cleaned Pocket take; output T = source t)
 _al = json.load(open('/tmp/jobs/serhat/work/p77_align.json'))
